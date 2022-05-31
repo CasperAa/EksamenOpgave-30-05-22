@@ -6,6 +6,7 @@ const teamURL = URL + "/teams"
 
 
 export function racerHandelsers(){
+    
     showAllRacers()
     showAllTeams()
     document.getElementById("filter-btn").addEventListener("click", showAllRacersByTeam)
@@ -17,7 +18,6 @@ export function racerHandelsers(){
 async function showAllRacers(){
     try{
     const racer = await fetch(racerURL).then(res => handleErrors (res))
-        console.log(racer)
         const tableData = racer.map(racer => `
         <tr> 
             <td>${racer.id}</td>    
@@ -42,7 +42,6 @@ async function showAllRacers(){
 async function showAllTeams(){
     try{
     const teams = await fetch(teamURL).then(res => handleErrors (res))
-        console.log(teams)
         const allTeams = teams.map(team => `
                 
                 <option> ${team.name} </option>    
@@ -50,7 +49,7 @@ async function showAllTeams(){
         `).join("\n")
         document.getElementById("teams").innerHTML = allTeams
     }catch{
-        //console.log(error.messange)
+        console.log(error.messange)
     }
 }
 
@@ -60,7 +59,6 @@ async function showAllRacersByTeam(){
     const searchTeam = document.getElementById("teams").value
     try{
     const racer = await fetch(racerURL + "?team=" + searchTeam).then(res => handleErrors (res))
-        console.log(racerURL + "?team=" + searchTeam)
         const tableData = racer.map(racer => `
         <tr> 
             <td>${racer.id}</td>    

@@ -41,7 +41,7 @@ async function editRacer(){
         await fetch(racerURL+"/"+racerId, makeOptions("PUT", racerToAdd)).then(res => handleErrors (res))
         
         }catch{ 
-            //console.log(error.messange)
+            console.log(error.messange)
         }
 }
 
@@ -50,7 +50,7 @@ async function deleteRacer(){
     try{
         await fetch(racerURL+"/"+racerId, makeOptions("DELETE")).then(res => handleErrors (res))
         }catch{ 
-            //console.log(error.message)
+            console.log(error.message)
         }
 }
 

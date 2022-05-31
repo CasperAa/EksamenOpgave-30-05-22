@@ -23,7 +23,6 @@ function addValues(team){
 
 async function addRacer(){
     const teamId = document.getElementById("teamId").innerHTML
-    console.log(teamId)
 
     const racerToAdd = {}
     racerToAdd.firstName = document.getElementById("firstName").value
@@ -31,10 +30,9 @@ async function addRacer(){
     racerToAdd.country = document.getElementById("country").value
     racerToAdd.age = document.getElementById("age").value
     racerToAdd.points = document.getElementById("points").value
-    console.log(racerToAdd)
     try{
         await fetch(racerURL+"/"+teamId, makeOptions("POST", racerToAdd)).then(res => handleErrors (res))
-        
+    
         }catch{ 
             console.log(error.messange)
         }

@@ -15,7 +15,6 @@ export function raceHandelsers(){
 async function showAllRaces(){
     try{
     const races = await fetch(raceURL).then(res => handleErrors (res))
-        console.log(races)
         const tableData = races.map(race => `
         <tr> 
             <td>${race.id}</td>    
@@ -26,7 +25,7 @@ async function showAllRaces(){
         `).join("\n")
         document.getElementById("tbl-body").innerHTML = tableData
     }catch{
-        //console.log(error.messange)
+        console.log(error.messange)
     }
     
 }
@@ -41,7 +40,7 @@ async function showAllRacesInOptions(){
         `).join("\n")
         document.getElementById("showForRace").innerHTML = allRaces
     }catch{
-        //console.log(error.messange)
+        console.log(error.messange)
     }
 }
 
@@ -49,10 +48,8 @@ async function showAllRacesInOptions(){
 async function showRaceWithData(){
     document.getElementById("race-results").innerHTML = ""
     const searchTeam = document.getElementById("showForRace").value
-    console.log(raceURL + "/race/" + searchTeam)
     try{
     const racesWithData = await fetch(raceURL + "/race/" + searchTeam).then(res => handleErrors (res))
-    console.log(racesWithData)
         const tableData = racesWithData.map(raceData => `
             <tr> 
                 <td>${raceData.raceName}</td>    
@@ -66,11 +63,10 @@ async function showRaceWithData(){
         console.log("after promise")
         document.getElementById("race-results").innerHTML = tableData
     }catch{
-        //console.log(error.messange)
+        console.log(error.messange)
     }
 }
 
 function hideData(){
     document.getElementById("race-results").innerHTML = ""
-    console.log("HIDE")
 }

@@ -12,7 +12,6 @@ export function teamHandelsers(){
 async function showAllTeams(){
     try{
     const teams = await fetch(teamURL).then(res => handleErrors (res))
-        console.log(teams)
         const tableData = teams.map(team => `
         <tr> 
             <td>${team.id}</td>    

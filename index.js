@@ -55,7 +55,7 @@ window.addEventListener("load", async () => {
 
     .on("/Races", () => {
         renderTemplate(templateRaces, "content")
-            raceHandelsers()
+        raceHandelsers()
         })
 
 
