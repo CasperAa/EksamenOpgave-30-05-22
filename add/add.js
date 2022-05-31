@@ -1,7 +1,7 @@
 import { handleErrors, makeOptions } from "../fetchUtils.js";
 import { URL } from "../settings.js";
 
-const racerURL = URL + "/racers"
+const racerURL = URL + "/cyclist"
 
 export function addHandelers(match){
     addValues(match)

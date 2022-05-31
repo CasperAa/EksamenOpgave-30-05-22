@@ -5,6 +5,7 @@ import { racerHandelsers } from "./racers/racer.js"
 import { editHandelsers } from "./edit/edit.js"
 import { teamHandelsers } from "./teams/teams.js"
 import { addHandelers } from "./add/add.js"
+import { raceHandelsers } from "./races/race.js"
 
 
 
@@ -13,6 +14,7 @@ window.addEventListener("load", async () => {
   const templateEdit = await loadTemplate("./edit/edit.html")
   const templateAdd = await loadTemplate("./add/add.html")
   const templateTeams = await loadTemplate("./teams/teams.html")
+  const templateRaces = await loadTemplate("./races/race.html")
 
 
 
@@ -43,16 +45,19 @@ window.addEventListener("load", async () => {
     .on("/AddRacer", (match) => {
         renderTemplate(templateAdd, "content")
         addHandelers(match)
-        console.log(match)
 
     })
 
     .on("/EditRacer", (match) => {
     renderTemplate(templateEdit, "content")
-        console.log(match)
         editHandelsers(match)
-
     })
+
+    .on("/Races", () => {
+        renderTemplate(templateRaces, "content")
+            raceHandelsers()
+        })
+
 
     });   
 

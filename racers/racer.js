@@ -1,15 +1,16 @@
 import { handleErrors } from "../fetchUtils.js";
 import { URL } from "../settings.js";
 
-const racerURL = URL + "/racers"
+const racerURL = URL + "/cyclist"
 const teamURL = URL + "/teams"
 
 
 export function racerHandelsers(){
     showAllRacers()
     showAllTeams()
-    document.getElementById("search-btn").addEventListener("click", showAllRacersByTeam)
-    
+    document.getElementById("filter-btn").addEventListener("click", showAllRacersByTeam)
+    document.getElementById("reset-btn").addEventListener("click", showAllRacers)
+
 }
 
 
